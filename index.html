@@ -19,7 +19,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/site.css" />
 
-  <!-- OPEN GRAPH (Facebook / Discord / WhatsApp) -->
+  <!-- OPEN GRAPH -->
   <meta property="og:title" content="Fallout 2d20 Characters – Companion App" />
   <meta property="og:description" content="Application Fallout 2d20 pour Android & Windows. Génération aléatoire, armes complètes, export PDF officiel, multi-langue FR/EN/IT." />
   <meta property="og:type" content="website" />
@@ -37,3 +37,156 @@
 </head>
 
 <body>
+
+  <!-- INTRO VIDÉO -->
+  <div class="intro intro-video" data-intro hidden aria-label="Intro vault door">
+    <div class="intro-inner">
+
+      <video
+        class="intro-media"
+        data-intro-video
+        autoplay
+        muted
+        playsinline
+        preload="auto"
+        aria-label="Intro vidéo"
+      >
+        <source src="/assets/intro.webm" type="video/webm" />
+        <source src="/assets/intro.mp4" type="video/mp4" />
+      </video>
+
+      <div class="intro-fallback" data-intro-fallback>
+        <div class="intro-bg"></div>
+        <div class="intro-light"></div>
+        <div class="intro-door"></div>
+      </div>
+
+      <div class="intro-mask" aria-label="Overlay HUD">
+        <span class="intro-mask-dot"></span>
+        <span><b>2d20 SYSTEM</b> • VAULT ACCESS</span>
+      </div>
+
+      <div class="intro-ui">
+        <div class="intro-title">
+          <span class="intro-dot"></span>
+          <span><b>fallout2d20characters.com</b> • Accès au bunker…</span>
+        </div>
+        <button class="btn small ghost" data-skip type="button">Passer</button>
+      </div>
+
+      <noscript>
+        <style>.intro{display:none!important}</style>
+      </noscript>
+    </div>
+  </div>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <img src="/assets/vault-icon.png" alt="Vault 111" class="logo-img" />
+        <div>
+          <b>Fallout 2d20 Characters</b>
+          <span>Android & Windows • Character Builder</span>
+        </div>
+      </a>
+      <nav class="links">
+        <a href="/download.html">Téléchargements</a>
+        <a href="/changelog.html">Patch notes</a>
+        <a class="btn small ghost" href="/download.html">Obtenir l’app</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker">Le monde de Fallout le jeu de role est à toi • Companion app</div>
+
+          <h1 class="h1">
+            Fallout 2d20 Character Builder & Companion App
+          </h1>
+
+          <p class="p">
+            Crée et gère tes personnages Fallout 2d20, génère des personnages aléatoires,
+            mets ta fiche de personnage dans ta poche et exporte tes fiches PDF.
+            Une application compagnon moderne pour Android et Windows.
+          </p>
+
+          <div class="cta">
+            <a class="btn primary" href="/download.html">Version Windows</a>
+            <a class="btn ghost"
+               href="https://play.google.com/store/apps/details?id=fr.maximumthedrek.fallout_2d20_characters"
+               target="_blank" rel="noopener noreferrer">Google Play</a>
+            <a class="btn ghost"
+               href="https://buymeacoffee.com/maximumthedrek"
+               target="_blank" rel="noopener noreferrer">☕ Soutenir le projet</a>
+          </div>
+
+          <div class="note">FR/EN/IT • Site officiel : fallout2d20characters.com</div>
+
+          <div class="features">
+            <div class="card feature">
+              <b>🎲 Génération aléatoire</b>
+              <p>Personnage + équipement + armes + effets en quelques secondes.</p>
+            </div>
+            <div class="card feature">
+              <b>🔫 Catalogue d’armes complet</b>
+              <p>Noms, portée, qualités et effets selon la langue.</p>
+            </div>
+            <div class="card feature">
+              <b>🧾 Export PDF officiel</b>
+              <p>Fiches robot et humain prêtes à jouer.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:18px">
+          <div style="font-weight:950;font-size:18px;color:var(--gold2)">Accès rapide</div>
+          <p style="margin:10px 0 0;color:var(--muted);line-height:1.6">
+            Téléchargements Android & Windows, SHA256 et notes de version.
+          </p>
+          <div class="cta" style="margin-top:14px">
+            <a class="btn primary" href="/download.html">Téléchargements</a>
+            <a class="btn ghost" href="/changelog.html">Patch notes</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">Pourquoi ce site</div>
+      <div class="card" style="padding:16px">
+        <div style="color:var(--muted);line-height:1.6">
+          Télécharge toujours la dernière version officielle de l'application Fallout 2d20
+          Companion App pour Android et Windows.
+        </div>
+      </div>
+
+      <div class="footer">
+        <span>© Fallout 2d20 Characters • Projet fan / compagnon JDR</span>
+        <span>Windows: GitHub Releases • Hébergé sur Vercel</span>
+      </div>
+    </section>
+  </main>
+
+  <script src="/assets/site.js"></script>
+
+  <!-- STRUCTURED DATA (SEO avancé) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Fallout 2d20 Characters",
+    "operatingSystem": "Android, Windows",
+    "applicationCategory": "GameApplication",
+    "description": "Fallout 2d20 companion app for character creation, random generation and PDF export.",
+    "url": "https://fallout2d20characters.com",
+    "image": "https://fallout2d20characters.com/assets/vault-icon.png",
+    "author": {
+      "@type": "Person",
+      "name": "MaximumTheDrek"
+    }
+  }
+  </script>
+
+</body>
+</html>

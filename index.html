@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Fallout 2d20 Characters</title>
   <meta name="description" content="Application Android & Windows pour créer et gérer vos personnages Fallout 2d20." />
+
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="theme-color" content="#05070b" />
   <link rel="stylesheet" href="/assets/site.css" />
@@ -14,6 +15,24 @@
   <meta property="og:type" content="website" />
 </head>
 <body>
+
+  <!-- INTRO CINÉMATIQUE -->
+  <div class="intro" data-intro hidden aria-label="Intro vault door">
+    <div class="intro-inner">
+      <div class="intro-bg"></div>
+      <div class="intro-light"></div>
+      <div class="intro-door"></div>
+
+      <div class="intro-ui">
+        <div class="intro-title">
+          <span class="intro-dot"></span>
+          <span><b>fallout2d20characters.com</b> • Accès au bunker…</span>
+        </div>
+        <button class="btn small ghost" data-skip type="button">Passer</button>
+      </div>
+    </div>
+  </div>
+
   <header class="nav">
     <div class="nav-inner">
       <a class="brand" href="/">
@@ -44,7 +63,8 @@
 
           <div class="cta">
             <a class="btn primary" href="/download.html">Télécharger</a>
-            <a class="btn ghost" href="https://play.google.com/store/apps/details?id=fr.maximumthedrek.fallout_2d20_characters" target="_blank" rel="noopener noreferrer">Google Play</a>
+            <a class="btn ghost" href="https://play.google.com/store/apps/details?id=fr.maximumthedrek.fallout_2d20_characters"
+               target="_blank" rel="noopener noreferrer">Google Play</a>
           </div>
           <div class="note">FR/EN/IT • Site officiel : fallout2d20characters.com</div>
 
@@ -64,20 +84,14 @@
           </div>
         </div>
 
-        <div class="card vault-wrap">
-          <div class="vault" data-vault>
-            <div class="light"></div>
-            <div class="door">
-              <div class="panel left"></div>
-              <div class="panel right"></div>
-              <div class="ring">
-                <div class="bolt"></div>
-              </div>
-            </div>
-          </div>
-          <div class="vault-caption">
-            <span><span class="pulse"></span> Vault door sequence</span>
-            <a class="btn small ghost" href="#" data-open-vault onclick="return false;">Rejouer</a>
+        <div class="card" style="padding:18px">
+          <div style="font-weight:950;font-size:18px;color:var(--gold2)">Accès rapide</div>
+          <p style="margin:10px 0 0;color:var(--muted);line-height:1.6">
+            Téléchargements Android & Windows, SHA256, et notes de version.
+          </p>
+          <div class="cta" style="margin-top:14px">
+            <a class="btn primary" href="/download.html">Téléchargements</a>
+            <a class="btn ghost" href="/changelog.html">Patch notes</a>
           </div>
         </div>
       </div>

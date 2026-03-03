@@ -3,198 +3,37 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Fallout 2d20 Characters</title>
-  <meta name="description" content="Application Android & Windows pour créer et gérer vos personnages Fallout 2d20." />
 
+  <!-- SEO PRINCIPAL -->
+  <title>Fallout 2d20 Characters – Companion App Android & Windows</title>
+  <meta name="description" content="Fallout 2d20 Characters est une application Android et Windows pour créer et gérer vos personnages Fallout 2d20. Génération aléatoire, catalogue d’armes complet, export PDF officiel robot et humain, multi-langue FR/EN/IT." />
+  <meta name="keywords" content="Fallout 2d20, Fallout 2d20 app, Fallout 2d20 character builder, Fallout RPG app, Fallout 2d20 PDF, Fallout tabletop companion app, Fallout 2d20 Android, Fallout 2d20 Windows" />
+  <meta name="author" content="MaximumTheDrek" />
+
+  <!-- FAVICON -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/favicon.png" />
   <link rel="shortcut icon" href="/favicon.png" />
   <meta name="theme-color" content="#1b3a6b" />
+
+  <!-- CSS -->
   <link rel="stylesheet" href="/assets/site.css" />
 
-  <meta property="og:title" content="Fallout 2d20 Characters" />
-  <meta property="og:description" content="Android & Windows • Fiches • PDF • Génération • Multi-langue" />
+  <!-- OPEN GRAPH (Facebook / Discord / WhatsApp) -->
+  <meta property="og:title" content="Fallout 2d20 Characters – Companion App" />
+  <meta property="og:description" content="Application Fallout 2d20 pour Android & Windows. Génération aléatoire, armes complètes, export PDF officiel, multi-langue FR/EN/IT." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fallout2d20characters.com/" />
+  <meta property="og:image" content="https://fallout2d20characters.com/assets/vault-icon.png" />
+
+  <!-- TWITTER -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fallout 2d20 Characters" />
+  <meta name="twitter:description" content="Companion app Fallout 2d20 – Android & Windows" />
+  <meta name="twitter:image" content="https://fallout2d20characters.com/assets/vault-icon.png" />
+
+  <!-- CANONICAL -->
+  <link rel="canonical" href="https://fallout2d20characters.com/" />
 </head>
 
 <body>
-
-  <!-- INTRO VIDÉO (assets/intro.webm et assets/intro.mp4)
-       Fallback : si la vidéo n'est pas trouvée, on garde une intro image (Vault111.webp) -->
-  <div class="intro intro-video" data-intro hidden aria-label="Intro vault door">
-    <div class="intro-inner">
-
-      <!-- Vidéo (plein écran) -->
-      <video
-        class="intro-media"
-        data-intro-video
-        autoplay
-        muted
-        playsinline
-        preload="auto"
-        aria-label="Intro vidéo"
-      >
-        <source src="/assets/intro.webm" type="video/webm" />
-        <source src="/assets/intro.mp4" type="video/mp4" />
-      </video>
-
-      <!-- Fallback image -->
-      <div class="intro-fallback" data-intro-fallback>
-        <div class="intro-bg"></div>
-        <div class="intro-light"></div>
-        <div class="intro-door"></div>
-      </div>
-
-      <!-- MASQUE (cache le watermark en haut à droite) -->
-      <div class="intro-mask" aria-label="Overlay HUD">
-        <span class="intro-mask-dot"></span>
-        <span><b>2d20 SYSTEM</b> • VAULT ACCESS</span>
-      </div>
-
-      <div class="intro-ui">
-        <div class="intro-title">
-          <span class="intro-dot"></span>
-          <span><b>fallout2d20characters.com</b> • Accès au bunker…</span>
-        </div>
-        <button class="btn small ghost" data-skip type="button">Passer</button>
-      </div>
-
-      <noscript>
-        <style>
-          .intro { display:none !important; }
-        </style>
-      </noscript>
-    </div>
-  </div>
-
-  <header class="nav">
-    <div class="nav-inner">
-      <a class="brand" href="/">
-        <img src="/assets/vault-icon.png" alt="Vault 111" class="logo-img" />
-        <div>
-          <b>Fallout 2d20 Characters</b>
-          <span>Android & Windows • Character Builder</span>
-        </div>
-      </a>
-      <nav class="links">
-        <a href="/download.html">Téléchargements</a>
-        <a href="/changelog.html">Patch notes</a>
-        <a class="btn small ghost" href="/download.html">Obtenir l’app</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="hero">
-      <div class="hero-grid">
-        <div>
-          <div class="kicker">Le monde de Fallout le jeu de role est à toi • Companion app</div>
-          <h1 class="h1">Ton compagnon Fallout 2d20, sur Android & Windows.</h1>
-          <p class="p">
-            Crée et gère tes personnages, génère des personnages aléatoire, met ta fiche de personnage dans ta poche,
-            et exporte tes fiches (PDF en amélioration). Une expérience moderne, rapide, et claire.
-            Pour m'aider à améliorer cette application, tu peux me payer un petit café:
-            <a class="btn ghost"
-   href="https://buymeacoffee.com/maximumthedrek"
-   target="_blank"
-   rel="noopener noreferrer">
-   ☕ Soutenir le projet
-</a>
-          </p>
-
-          <div class="cta">
-            <a class="btn primary" href="/download.html">Version windows</a>
-            <a class="btn ghost"
-               href="https://play.google.com/store/apps/details?id=fr.maximumthedrek.fallout_2d20_characters"
-               target="_blank" rel="noopener noreferrer">Google Play</a>
-          </div>
-          <div class="note">FR/EN/IT • Site officiel : fallout2d20characters.com</div>
-
-          <div class="features">
-            <div class="card feature">
-              <b> Génération de personnage en aléatoire</b>
-              <p>Perso + équipement + armes + effets, en quelques secondes.</p>
-            </div>
-            <div class="card feature">
-              <b> Toutes les armes du jeu</b>
-              <p>Catalogue clair :Nom, portée, qualités, effets, selon la langue.</p>
-            </div>
-            <div class="card feature">
-              <b>PDF Officiel Robot et humain</b>
-              <p>Export de fiches officiel pour jouer partout.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card" style="padding:18px">
-          <div style="font-weight:950;font-size:18px;color:var(--gold2)">Accès rapide</div>
-          <p style="margin:10px 0 0;color:var(--muted);line-height:1.6">
-            Téléchargements Android & Windows, SHA256, et notes de version.
-          </p>
-          <div class="cta" style="margin-top:14px">
-            <a class="btn primary" href="/download.html">Téléchargements</a>
-            <a class="btn ghost" href="/changelog.html">Patch notes</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="section-title">Pourquoi ce site</div>
-      <div class="card" style="padding:16px">
-        <div style="color:var(--muted);line-height:1.6">
-          Ici tu trouveras toujours la <b>dernière version Windows</b>, le lien Play Store,
-          et les notes de mise à jour. (Projet fan / compagnon JDR.)
-        </div>
-      </div>
-
-      <div class="footer">
-        <span>© Fallout 2d20 Characters • Projet fan / compagnon JDR</span>
-        <span>Windows: GitHub Releases • Hébergé sur Vercel</span>
-      </div>
-    </section>
-  </main>
-
-  <script src="/assets/site.js"></script>
-
-  <!-- Script de secours -->
-  <script>
-    (function () {
-      const intro = document.querySelector('[data-intro]');
-      const video = document.querySelector('[data-intro-video]');
-      const fallback = document.querySelector('[data-intro-fallback]');
-      const skipBtn = document.querySelector('[data-skip]');
-      if (!intro) return;
-
-      const hideIntro = () => {
-        intro.classList.add('fade');
-        setTimeout(() => { intro.hidden = true; }, 600);
-      };
-
-      if (fallback) fallback.style.display = 'block';
-
-      if (video) {
-        const onCanPlay = () => { if (fallback) fallback.style.display = 'none'; };
-        const onError = () => { if (fallback) fallback.style.display = 'block'; };
-
-        video.addEventListener('canplay', onCanPlay);
-        video.addEventListener('playing', onCanPlay);
-        video.addEventListener('error', onError);
-        video.addEventListener('ended', hideIntro);
-
-        setTimeout(() => {
-          if (video.readyState < 2) onError();
-        }, 900);
-      }
-
-      const skip = () => hideIntro();
-      if (skipBtn) skipBtn.addEventListener('click', skip);
-      intro.addEventListener('click', (e) => {
-        if (e.target && e.target.closest && e.target.closest('button')) return;
-        skip();
-      });
-      window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') skip();
-      });
-    })();
-  </script>
-</body>
-</html>

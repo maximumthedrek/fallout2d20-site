@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fallout 2d20 Characters</title>
+  <meta name="description" content="Application Fallout 2d20 pour créer et gérer vos personnages. Android + Windows." />
+  <style>
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#070b07;color:#d8ffd8}
+    .wrap{max-width:980px;margin:0 auto;padding:36px 18px}
+    .card{border:1px solid #1f3a1f;border-radius:18px;padding:26px;background:#0c130c;box-shadow:0 10px 40px rgba(0,0,0,.45)}
+    .top{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+    h1{margin:0;font-size:34px;letter-spacing:.2px}
+    .tag{font-size:13px;opacity:.85;border:1px solid #255025;border-radius:999px;padding:6px 10px}
+    p{line-height:1.55;opacity:.92;margin:10px 0 0}
+    .btns{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0 8px}
+    a.btn{display:inline-block;padding:12px 16px;border-radius:12px;text-decoration:none;color:#071007;background:#57ff57;font-weight:800}
+    a.btn.secondary{background:transparent;color:#d8ffd8;border:1px solid #57ff57}
+    a.btn:active{transform:translateY(1px)}
+    .mini{font-size:13px;opacity:.82;margin-top:12px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:18px}
+    .feat{border:1px solid #1f3a1f;border-radius:14px;padding:14px;background:#0a110a}
+    .feat b{display:block;margin-bottom:6px}
+    .footer{margin-top:18px;font-size:12px;opacity:.75}
+    .links a{color:#8dff8d}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="top">
+        <div>
+          <h1>Fallout 2d20 Characters</h1>
+          <p>Crée et gère tes personnages Fallout 2d20 : fiches, génération aléatoire, export PDF, et multi-langue.</p>
+        </div>
+        <div class="tag">FR 🇫🇷 · EN 🇬🇧 · IT 🇮🇹</div>
+      </div>
+
+      <div class="btns">
+        <a class="btn" target="_blank" rel="noreferrer"
+           href="https://play.google.com/store/apps/details?id=fr.maximumthedrek.fallout_2d20_characters">
+          📱 Télécharger sur Google Play
+        </a>
+
+        <!-- Safe: toujours à jour, mène à la dernière release -->
+        <a class="btn" target="_blank" rel="noreferrer"
+           href="https://github.com/maximumthedrek/Fallout-2d20-windows/releases/latest">
+          💻 Télécharger la version PC (Windows)
+        </a>
+
+        <!-- Optionnel: deep link (désactivé pour l’instant) -->
+        <!--
+        <a class="btn secondary" href="https://tondomaine.fr/open">
+          🚀 Ouvrir l’application
+        </a>
+        -->
+      </div>
+
+      <div class="mini">
+        ⚠️ Windows : télécharge le .zip → clic droit “Extraire tout…” → ouvre le dossier → lance le .exe
+      </div>
+
+      <div class="grid">
+        <div class="feat"><b>🎲 Personnage aléatoire</b>Génération complète avec équipement/armes.</div>
+        <div class="feat"><b>🔫 Catalogue d’armes</b>Noms, effets, qualités, portée selon la langue.</div>
+        <div class="feat"><b>🧾 Export PDF</b>Fiches prêtes à imprimer (en évolution).</div>
+        <div class="feat"><b>⚙️ Optimisé</b>Interface plus fluide, cohérence améliorée.</div>
+      </div>
+
+      <div class="footer links">
+        Repo Windows : <a target="_blank" rel="noreferrer" href="https://github.com/maximumthedrek/Fallout-2d20-windows">github.com/maximumthedrek/Fallout-2d20-windows</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -17,7 +17,7 @@
 
 <body>
 
-  <!-- INTRO VIDÉO (à ajouter plus tard : /assets/intro.webm et /assets/intro.mp4)
+  <!-- INTRO VIDÉO (assets/intro.webm et assets/intro.mp4)
        Fallback : si la vidéo n'est pas trouvée, on garde une intro image (Vault111.webp) -->
   <div class="intro intro-video" data-intro hidden aria-label="Intro vault door">
     <div class="intro-inner">
@@ -36,12 +36,17 @@
         <source src="/assets/intro.mp4" type="video/mp4" />
       </video>
 
-      <!-- Fallback image (utilise ton CSS actuel: .intro-bg etc.)
-           Si la vidéo ne charge pas, ton JS peut afficher ce bloc -->
+      <!-- Fallback image -->
       <div class="intro-fallback" data-intro-fallback>
         <div class="intro-bg"></div>
         <div class="intro-light"></div>
         <div class="intro-door"></div>
+      </div>
+
+      <!-- MASQUE (cache le watermark en haut à droite) -->
+      <div class="intro-mask" aria-label="Overlay HUD">
+        <span class="intro-mask-dot"></span>
+        <span><b>2d20 SYSTEM</b> • VAULT ACCESS</span>
       </div>
 
       <div class="intro-ui">
@@ -141,10 +146,7 @@
 
   <script src="/assets/site.js"></script>
 
-  <!-- Petit script de secours (si jamais ton site.js n'est pas encore adapté à la vidéo)
-       - Si la vidéo ne charge pas -> on affiche le fallback image
-       - Si la vidéo se termine -> on cache l’intro
-       Ton site.js pourra remplacer ça ensuite. -->
+  <!-- Script de secours -->
   <script>
     (function () {
       const intro = document.querySelector('[data-intro]');
@@ -158,10 +160,8 @@
         setTimeout(() => { intro.hidden = true; }, 600);
       };
 
-      // Affiche fallback par défaut, puis on le masque seulement si la vidéo joue
       if (fallback) fallback.style.display = 'block';
 
-      // Si la vidéo se lance vraiment, on masque le fallback
       if (video) {
         const onCanPlay = () => { if (fallback) fallback.style.display = 'none'; };
         const onError = () => { if (fallback) fallback.style.display = 'block'; };
@@ -171,13 +171,11 @@
         video.addEventListener('error', onError);
         video.addEventListener('ended', hideIntro);
 
-        // Sécurité: si la vidéo ne charge pas sous 900ms, on garde le fallback
         setTimeout(() => {
           if (video.readyState < 2) onError();
         }, 900);
       }
 
-      // Skip
       const skip = () => hideIntro();
       if (skipBtn) skipBtn.addEventListener('click', skip);
       intro.addEventListener('click', (e) => {

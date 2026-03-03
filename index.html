@@ -58,7 +58,8 @@
         <div class="intro-bg"></div>
       </div>
 
-      <div class="intro-mask">
+      <!-- IMPORTANT: on descend le masque pour ne pas couvrir trop haut -->
+      <div class="intro-mask" style="top:55px;">
         <span class="intro-mask-dot"></span>
         <span><b>2d20 SYSTEM</b> • VAULT ACCESS</span>
       </div>
@@ -66,7 +67,7 @@
       <div class="intro-ui">
         <div class="intro-title">
           <span class="intro-dot"></span>
-          <span><b>fallout2d20characters.com</b> • Accès au bunker…</span>
+          <span><b>fallout2d20characters.com</b> • Reclamation Day</span>
         </div>
         <button class="btn small ghost" data-skip type="button">Passer</button>
       </div>
@@ -125,6 +126,56 @@
       </div>
     </section>
   </main>
+
+  <!-- INTRO SCRIPT (remet l’intro + gère vidéo/fallback/skip) -->
+  <script>
+    (function () {
+      const intro = document.querySelector('[data-intro]');
+      const video = document.querySelector('[data-intro-video]');
+      const fallback = document.querySelector('[data-intro-fallback]');
+      const skipBtn = document.querySelector('[data-skip]');
+      if (!intro) return;
+
+      // affiche l’intro dès que le DOM est prêt
+      intro.hidden = false;
+
+      const hideIntro = () => {
+        intro.classList.add('fade');
+        setTimeout(() => { intro.hidden = true; }, 600);
+      };
+
+      // fallback visible tant que la vidéo n'est pas sûre de jouer
+      if (fallback) fallback.style.display = 'block';
+
+      // si la vidéo joue, on masque le fallback
+      const showVideo = () => { if (fallback) fallback.style.display = 'none'; };
+      const showFallback = () => { if (fallback) fallback.style.display = 'block'; };
+
+      if (video) {
+        video.addEventListener('canplay', showVideo);
+        video.addEventListener('playing', showVideo);
+        video.addEventListener('error', showFallback);
+        video.addEventListener('ended', hideIntro);
+
+        // sécurité: si pas chargé rapidement, on garde fallback
+        setTimeout(() => {
+          if (video.readyState < 2) showFallback();
+        }, 900);
+
+        // si tu veux forcer une durée max (ex: 4s)
+        setTimeout(hideIntro, 4000);
+      } else {
+        // pas de vidéo -> on ferme après 2.5s
+        setTimeout(hideIntro, 2500);
+      }
+
+      // skip
+      if (skipBtn) skipBtn.addEventListener('click', hideIntro);
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') hideIntro();
+      });
+    })();
+  </script>
 
   <!-- Tracking boutons -->
   <script>

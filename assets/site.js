@@ -1,23 +1,54 @@
 (() => {
-  const vault = document.querySelector("[data-vault]");
-  const btn = document.querySelector("[data-open-vault]");
+  const intro = document.querySelector("[data-intro]");
+  const skipBtn = document.querySelector("[data-skip]");
+  const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
 
-  if (!vault) return;
+  const KEY = "f2d20_intro_seen";
 
-  const open = () => vault.classList.add("open");
+  const hideIntro = () => {
+    if (!intro) return;
+    intro.classList.add("fade");
+    setTimeout(() => {
+      intro.hidden = true;
+    }, 600);
+  };
 
-  // Auto-open after a short delay (cinematic)
-  window.addEventListener("load", () => {
-    setTimeout(open, 450);
+  const playIntro = () => {
+    if (!intro) return;
+    intro.hidden = false;
+
+    // If user prefers reduced motion, skip fast
+    if (prefersReduced) {
+      setTimeout(() => {
+        sessionStorage.setItem(KEY, "1");
+        hideIntro();
+      }, 200);
+      return;
+    }
+
+    intro.classList.add("play");
+    // total ~2.2s then fade out
+    setTimeout(() => {
+      sessionStorage.setItem(KEY, "1");
+      hideIntro();
+    }, 2300);
+  };
+
+  // Show intro only once per session (you can switch to localStorage if you want once forever)
+  const seen = sessionStorage.getItem(KEY) === "1";
+  if (intro && !seen) playIntro();
+  if (intro && seen) intro.hidden = true;
+
+  // Skip handlers
+  const skip = () => {
+    sessionStorage.setItem(KEY, "1");
+    hideIntro();
+  };
+  if (skipBtn) skipBtn.addEventListener("click", skip);
+  if (intro) intro.addEventListener("click", skip);
+
+  // Safety: ESC to skip
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") skip();
   });
-
-  // Manual replay
-  if (btn) {
-    btn.addEventListener("click", () => {
-      vault.classList.remove("open");
-      // Force reflow to restart animation
-      void vault.offsetWidth;
-      setTimeout(open, 50);
-    });
-  }
 })();

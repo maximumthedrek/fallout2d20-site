@@ -186,3 +186,29 @@ a{color:inherit}
 .intro.fade{animation:introFade .55s ease forwards}
 
 @keyframes introFade{to{opacity:0;visibility:hidden}}
+
+.social-links{
+  margin-top:18px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  align-items:center;
+  font-size:14px;
+  color:var(--muted);
+}
+
+.social-links a{
+  text-decoration:none;
+  padding:6px 12px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:rgba(233,238,247,.03);
+  transition:all .2s ease;
+  font-weight:700;
+}
+
+.social-links a:hover{
+  color:var(--ink);
+  border-color:rgba(243,200,75,.5);
+  background:rgba(243,200,75,.08);
+}

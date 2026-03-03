@@ -24,7 +24,7 @@ body{
 }
 
 /* Overlay masque coin haut droit */
-.intro-mask {
+.intro-mask{
   position:absolute;
   top:18px;
   right:18px;
@@ -39,15 +39,16 @@ body{
   font-size:12px;
   letter-spacing:.3px;
   color:#e9eef7;
+
+  z-index:6;            /* IMPORTANT: au-dessus de la vidéo */
+  pointer-events:none;  /* IMPORTANT: ne bloque pas le bouton "Passer" */
 }
 
 .intro-mask-dot{
-  width:8px;
-  height:8px;
-  border-radius:50%;
+  width:8px;height:8px;border-radius:50%;
   background:#6ee7ff;
   box-shadow:0 0 0 0 rgba(110,231,255,.5);
-  animation: pulseMask 1.6s infinite;
+  animation:pulseMask 1.6s infinite;
 }
 
 @keyframes pulseMask{
@@ -144,7 +145,7 @@ a{color:inherit}
 }
 
 /* =========================
-   INTRO VAULT OVERLAY
+   INTRO OVERLAY (vidéo + fallback)
    ========================= */
 .intro{
   position:fixed;inset:0;z-index:9999;
@@ -165,6 +166,24 @@ a{color:inherit}
   .intro-inner{border-radius:0;width:100vw;height:100vh}
 }
 
+/* Vidéo fullscreen */
+.intro-media{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:1;
+}
+
+/* Fallback par-dessus si la vidéo ne charge pas */
+.intro-fallback{
+  position:absolute;
+  inset:0;
+  z-index:2;
+}
+
+/* Background fallback image */
 .intro-bg{
   position:absolute;inset:0;
   background:
@@ -205,6 +224,8 @@ a{color:inherit}
   display:flex;align-items:center;justify-content:space-between;gap:10px;
   color:rgba(233,238,247,.85);
   font-size:12.5px;
+
+  z-index:7; /* au-dessus du reste */
 }
 .intro-title{
   display:flex;align-items:center;gap:10px;
@@ -224,7 +245,7 @@ a{color:inherit}
   100%{box-shadow:0 0 0 0 rgba(110,231,255,0)}
 }
 
-/* Animation */
+/* Animation fallback */
 .intro.play .intro-bg{animation:introZoom 1.9s ease forwards}
 .intro.play .intro-light{animation:introLight 1.9s ease forwards .15s}
 .intro.play .intro-door::before{animation:introLeft 1.25s cubic-bezier(.2,.8,.2,1) forwards .55s}
